@@ -25,6 +25,7 @@ None...yet!
 
 ## Release Notes
 
-### 0.0.1
+### 0.5
+Basic functionality. Program only works in current session.
 
 Beginning project.
