@@ -22,7 +22,8 @@ export function activate(context: vscode.ExtensionContext) {
 		let regexIf: RegExp = new RegExp('if', 'g');
 		let regexFor: RegExp = new RegExp('for', 'g');
 
-		helloWorld(textChanges, ifStatements, forLoops, experiencePoints, currentLevel, experienceThresholds, regexIf, regexFor);
+		helloWorld(textChanges, ifStatements, forLoops, experiencePoints, currentLevel,
+			 experienceThresholds, regexIf, regexFor);
 	});
 }
 

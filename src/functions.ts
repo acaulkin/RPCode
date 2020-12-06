@@ -1,7 +1,9 @@
 import * as vscode from 'vscode';
 
-export function helloWorld(textChanges: string, ifStatements: number, forLoops: number, experiencePoints: number, currentLevel: number, experienceThresholds: Array<number>, regexIf: RegExp, regexFor: RegExp) {
-    		// Detecting change event in current editor
+export function helloWorld(textChanges: string, ifStatements: number, forLoops: number, 
+	experiencePoints: number, currentLevel: number, experienceThresholds: Array<number>, 
+	regexIf: RegExp, regexFor: RegExp) {
+    	// Detecting change event in current editor
 		vscode.workspace.onDidChangeTextDocument(changeEvent => {
 			console.log(`File Changed: ${changeEvent.document.uri}`);
 			for (const change of changeEvent.contentChanges) {
