@@ -6,7 +6,7 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log('RPCode is now active!');
-	vscode.window.createStatusBarItem()
+	vscode.window.createStatusBarItem();
 	// Turning on xp tracking
 	vscode.commands.registerCommand('rpcode.xpTrack', () => {
 
