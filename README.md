@@ -1,7 +1,6 @@
 # rpcode README
 
-Welcome to RPCode!
-Gain xp and level up while coding.
+Welcome to RPCode, an extension for vscode that allows you to gain  xp and level up while coding.
 Declare a variable? 1 xp!
 write a for loop? 5 xp!
 Have fun!
