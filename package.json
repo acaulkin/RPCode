@@ -1,7 +1,7 @@
 {
   "name": "rpcode",
   "displayName": "RPCode",
-  "description": "Gameify's coding for vscode users!",
+  "description": "Gameify coding for vscode users!",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.51.0"
@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:rpcode.helloWorld"
+    "onCommand:rpcode.xpTrack"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "rpcode.helloWorld",
-        "title": "Hello World"
+        "command": "rpcode.xpTrack",
+        "title": "Activate XP Tracking"
       }
     ]
   },
