@@ -12,18 +12,23 @@ export function activate(context: vscode.ExtensionContext) {
 	vscode.window.createStatusBarItem();
 	// Turning on xp tracking
 	vscode.commands.registerCommand('rpcode.xpTrack', () => {
-		let textChanges: string = "";		
+		let textChanges: string = "";	
+
 		let ifStatements: number = 0;
 		let forLoops: number = 0;
+		let whileLoops: number = 0;
+
 		let experiencePoints: number = 0;
 		let currentLevel: number = 1;
 		let experienceThresholds: Array<number> = [10, 20, 40, 80, 160, 320, 640, 1280, 2560];
 
 		let regexIf: RegExp = new RegExp('if', 'g');
 		let regexFor: RegExp = new RegExp('for', 'g');
+		let regexWhile: RegExp = new RegExp('while', 'g');
 
-		helloWorld(textChanges, ifStatements, forLoops, experiencePoints, currentLevel,
-			 experienceThresholds, regexIf, regexFor);
+
+		helloWorld(textChanges, ifStatements, forLoops, whileLoops, experiencePoints, currentLevel,
+			 experienceThresholds, regexIf, regexFor, regexWhile);
 	});
 }
 
