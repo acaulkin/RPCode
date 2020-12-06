@@ -1,7 +1,4 @@
 import * as vscode from 'vscode';
-
-
-
 // TODO: create clickable status bar item that shows the user their xp. 
 
 // TODO: Link this to some kind of database that will be stored locally on a user's 
@@ -18,15 +15,10 @@ export function activate(context: vscode.ExtensionContext) {
 		var forLoops = 0;
 		var experiencePoints = 0;
 		var currentLevel = 1;
-
-		var playerActions = {
-			'ifStatement': 'if',
-			'forLoop': 'for'
-		};
 		var experienceThresholds = [10, 20, 40, 80, 160, 320, 640, 1280, 2560];
 		
-		var regexIf = new RegExp(playerActions['ifStatement'], 'g');
-		var regexFor = new RegExp(playerActions['forLoop'], 'g');
+		var regexIf = new RegExp('if', 'g');
+		var regexFor = new RegExp('for', 'g');
 
 		// Detecting change event in current editor
 		vscode.workspace.onDidChangeTextDocument(changeEvent => {
@@ -35,9 +27,8 @@ export function activate(context: vscode.ExtensionContext) {
 				textChanges = textChanges + change.text;	 
 			}
 
-			// Checking if current match of statements defined in hash table is
-			// greater than previous, and if any are, store new amount 
-			// as previous and user gains amount of xp set.
+			// Checking if there are any matches in regex statements, 
+			// and awarding experience if there are
 			if ((textChanges.match(regexIf)||[]).length > ifStatements) {
 				ifStatements = (textChanges.match(regexIf)||[]).length;
 				experiencePoints += 1;
