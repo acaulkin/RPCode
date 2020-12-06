@@ -1,9 +1,17 @@
-// Function for tracking xp
-export function xpTrack() {
-    return 'Xp Track Enabled!';
+
+export class User {
+    constructor() {
+        
+    }
+
+  
+    public xpTrack() {
+        return 'XP Tracking Enabled!';
+    } 
+
+    public levelUp() {
+        return 'Level Up!';
+    }
 }
 
-// Function for leveling up
-export function levelUp() {
-    return 'Level Up!';
-}
+

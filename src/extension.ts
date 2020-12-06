@@ -1,5 +1,7 @@
 import * as vscode from 'vscode';
-import { xpTrack, levelUp } from './xpSystem';
+import { User } from './xpSystem';
+
+var user:User = new User();
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log('Congratulations, your extension "rpcode" is now active!');
@@ -7,8 +9,8 @@ export function activate(context: vscode.ExtensionContext) {
 	// Turning on xp tracking
 	let disposable = vscode.commands.registerCommand('rpcode.xpTrack', () => {
 		// Display a message box to the user
-		vscode.window.showInformationMessage(xpTrack());
-		vscode.window.showInformationMessage(levelUp());
+		vscode.window.showInformationMessage(user.xpTrack());
+		vscode.window.showInformationMessage(user.levelUp());
 	});
 	context.subscriptions.push(disposable);
 }
