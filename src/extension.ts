@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-
+import { helloWorld } from './functions';
 
 // TODO: create clickable status bar item that shows the user their xp. 
 
@@ -9,52 +9,26 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log('RPCode is now active!');
-	vscode.window.createStatusBarItem()
+	vscode.window.createStatusBarItem();
 	// Turning on xp tracking
 	vscode.commands.registerCommand('rpcode.xpTrack', () => {
+		let textChanges: string = "";	
 
-		let textChanges: string = "";		
-		var ifStatements = 0;
-		var forLoops = 0;
-		var experiencePoints = 0;
-		var currentLevel = 1;
+		let ifStatements: number = 0;
+		let forLoops: number = 0;
+		let whileLoops: number = 0;
 
-		var playerActions = {
-			'ifStatement': 'if',
-			'forLoop': 'for'
-		};
-		var experienceThresholds = [10, 20, 40, 80, 160, 320, 640, 1280, 2560];
-		
-		var regexIf = new RegExp(playerActions['ifStatement'], 'g');
-		var regexFor = new RegExp(playerActions['forLoop'], 'g');
+		let experiencePoints: number = 0;
+		let currentLevel: number = 1;
+		let experienceThresholds: Array<number> = [10, 20, 40, 80, 160, 320, 640, 1280, 2560];
 
-		// Detecting change event in current editor
-		vscode.workspace.onDidChangeTextDocument(changeEvent => {
-			console.log(`File Changed: ${changeEvent.document.uri}`);
-			for (const change of changeEvent.contentChanges) {
-				textChanges = textChanges + change.text;	 
-			}
+		let regexIf: RegExp = new RegExp('if', 'g');
+		let regexFor: RegExp = new RegExp('for', 'g');
+		let regexWhile: RegExp = new RegExp('while', 'g');
 
-			// Checking if current match of statements defined in hash table is
-			// greater than previous, and if any are, store new amount 
-			// as previous and user gains amount of xp set.
-			if ((textChanges.match(regexIf)||[]).length > ifStatements) {
-				ifStatements = (textChanges.match(regexIf)||[]).length;
-				experiencePoints += 1;
-				vscode.window.setStatusBarMessage('+1 XP Gained!', 5000);
-			}
-			if ((textChanges.match(regexFor)||[]).length > forLoops) {
-				forLoops = (textChanges.match(regexFor)||[]).length;
-				experiencePoints += 5;
-				vscode.window.setStatusBarMessage('+5 XP Gained!', 5000);
-			}
 
-			// Level up check
-			if (experiencePoints >= experienceThresholds[currentLevel - 1]) {
-				vscode.window.showInformationMessage(`Congratulations! You are now level: ${currentLevel}`);
-				currentLevel += 1;
-			}
-		});
+		helloWorld(textChanges, ifStatements, forLoops, whileLoops, experiencePoints, currentLevel,
+			 experienceThresholds, regexIf, regexFor, regexWhile);
 	});
 }
 
