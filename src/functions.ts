@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-export function helloWorld(
+export function experienceTracking(
 	textChanges: string, ifStatements: number, forLoops: number, 
 	whileLoops: number,experiencePoints: number, currentLevel: number, experienceThresholds: Array<number>, 
 	regexIf: RegExp, regexFor: RegExp, regexWhile: RegExp) {

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-import { helloWorld } from './functions';
+import { experienceTracking } from './functions';
 
 // TODO: create clickable status bar item that shows the user their xp. 
 
@@ -26,8 +26,18 @@ export function activate(context: vscode.ExtensionContext) {
 		let regexFor: RegExp = new RegExp('for', 'g');
 		let regexWhile: RegExp = new RegExp('while', 'g');
 
+		
 
-		helloWorld(textChanges, ifStatements, forLoops, whileLoops, experiencePoints, currentLevel,
+// 		// TODO: Figure out how to play MP3 sounds
+// 		var player = require('play-sound')(opts = {})
+ 
+// 		// $ mplayer foo.mp3 
+// 		player.play('sampleSound.mp3', function(err){
+// 			if (err) {throw err};
+// });
+
+
+experienceTracking(textChanges, ifStatements, forLoops, whileLoops, experiencePoints, currentLevel,
 			 experienceThresholds, regexIf, regexFor, regexWhile);
 	});
 }
